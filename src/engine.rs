@@ -1,6 +1,6 @@
 use clavfrancais_engine::{
     char_buffer::CharBuffer,
-    input_controller::{CombinationTarget, InputController, KeyCombinationMap},
+    engine::{CombinationTarget, Engine, KeyCombinationMap},
     keys::{Key, CHANGE_FOCUS_KEYS},
 };
 use std::sync::mpsc::{self, Receiver, Sender};
@@ -8,23 +8,23 @@ use std::sync::mpsc::{self, Receiver, Sender};
 use crate::input_listener::{InputListener, MouseKeyEvent, WindowsListener as InputListenerImpl};
 use crate::input_simulator::{InputSimulator, WindowsInputSimulator as InputSimulatorImpl};
 
-pub struct Engine;
+pub struct WindowEngine;
 
-struct EngineState<T>
+struct WindowEngineState<T>
 where
     T: CharBuffer,
 {
-    input_controller: InputController<T>,
+    input_controller: Engine<T>,
     open_guillmets: bool,
 }
 
-impl<T> EngineState<T>
+impl<T> WindowEngineState<T>
 where
     T: CharBuffer,
 {
     fn new(combination_map: KeyCombinationMap, char_buffer: T) -> Self {
         Self {
-            input_controller: InputController::new(combination_map, char_buffer),
+            input_controller: Engine::new(combination_map, char_buffer),
             open_guillmets: true,
         }
     }
@@ -88,11 +88,11 @@ where
     }
 }
 
-impl Engine {
+impl WindowEngine {
     pub fn start(combination_map: KeyCombinationMap, char_buffer: impl CharBuffer) {
         let (sender, receiver) = mpsc::channel::<MouseKeyEvent>();
         InputListenerImpl::start_mouse_key_listening(sender);
-        let mut engine = EngineState::new(combination_map, char_buffer);
+        let mut engine = WindowEngineState::new(combination_map, char_buffer);
         engine.handle_event(receiver);
     }
 

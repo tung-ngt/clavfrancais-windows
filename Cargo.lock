@@ -14,7 +14,7 @@ dependencies = [
 [[package]]
 name = "clavfrancais_engine"
 version = "0.1.0"
-source = "git+https://github.com/tung-ngt/clavfrancais-engine.git#c88b11e1376112aee8f3f3f39267dc9a17c6d2a3"
+source = "git+https://github.com/tung-ngt/clavfrancais-engine.git#38e4f243ab0bad90e665f6ac6e771789b6d9c1ce"
 dependencies = [
  "lazy_static",
  "windows",
