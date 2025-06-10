@@ -1,0 +1,12 @@
+.flagContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.section {
+    display: flex;
+    padding: 0 20px;
+    width: 100%;
+    justify-content: center;
+}

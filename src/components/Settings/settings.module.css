@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.title {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.section {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+}

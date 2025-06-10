@@ -1,0 +1,23 @@
+.header {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+    width: 100%;
+}
+
+.quitButton {
+    position: absolute;
+    right: 20px;
+    border: none;
+    padding: 0px;
+    background: transparent;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+.quitImg {
+    width: 20px;
+    height: 20px;
+}

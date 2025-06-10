@@ -5,8 +5,8 @@ use clavfrancais_engine::{
 };
 use std::sync::mpsc::{self, Receiver, Sender};
 
-use crate::input_listener::{InputListener, MouseKeyEvent, WindowsListener as InputListenerImpl};
-use crate::input_simulator::{InputSimulator, WindowsInputSimulator as InputSimulatorImpl};
+use super::input_listener::{InputListener, MouseKeyEvent, WindowsListener as InputListenerImpl};
+use super::input_simulator::{InputSimulator, WindowsInputSimulator as InputSimulatorImpl};
 
 pub struct WindowEngine;
 

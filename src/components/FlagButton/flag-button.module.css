@@ -1,0 +1,51 @@
+.button {
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    padding: 0;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    user-select: none;
+}
+
+.active {
+
+    border: 1px solid black;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    opacity: 0;
+    bottom: 100%;
+    left: 50%;
+    translate: -50% -5px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    transition: all 0.1s ease;
+}
+
+.tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.button:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.img {
+    width: 125px;
+    aspect-ratio: 1/1;
+}

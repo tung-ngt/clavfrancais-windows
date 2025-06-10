@@ -1,0 +1,22 @@
+.button {
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    background: none;
+    cursor: pointer;
+}
+
+.primary {
+    background: #506ad5;
+    color: white;
+}
+
+.secondary {
+    border: 1px solid #506ad4;
+    color: #506ad4;
+}
+
+.disable {
+    opacity: 0.5;
+}

@@ -1,0 +1,13 @@
+.panel {
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.02);
+    width: 100%;
+}
+
+/* @media (prefers-color-scheme: dark) {
+    .panel {
+        background: #272727;
+    }
+} */

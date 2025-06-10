@@ -1,0 +1,17 @@
+.title {
+    color: #506ad4;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.logoContainer {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    width: fit-content;
+    align-items: center;
+}
+
+.logo {
+    width: 30px;
+    height: 30px;
+}
