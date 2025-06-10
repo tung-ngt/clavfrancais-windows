@@ -1,7 +1,7 @@
 use std::{sync::mpsc, thread};
 
 use clavfrancais_engine::{char_buffer::StackSizedCharBuffer, engine::setup_key_combination_map};
-use clavfrancais_windows::engine::WindowEngine;
+use clavfrancais_windows::window_engine::WindowEngine;
 
 fn main() {
     let mut is_french = false;

@@ -15,7 +15,6 @@ where
     T: CharBuffer,
 {
     input_controller: Engine<T>,
-    open_guillmets: bool,
 }
 
 impl<T> WindowEngineState<T>
@@ -25,7 +24,6 @@ where
     fn new(combination_map: KeyCombinationMap, char_buffer: T) -> Self {
         Self {
             input_controller: Engine::new(combination_map, char_buffer),
-            open_guillmets: true,
         }
     }
     fn handle_event(&mut self, receiver: Receiver<MouseKeyEvent>) {
@@ -49,17 +47,6 @@ where
                         continue;
                     };
 
-                    if unicode_char == '"' {
-                        let guillements = if self.open_guillmets { '«' } else { '»' };
-                        self.open_guillmets = !self.open_guillmets;
-
-                        let _ = self.input_controller.add_char(guillements);
-
-                        InputSimulatorImpl::backspace();
-                        InputSimulatorImpl::character(guillements);
-                        continue;
-                    }
-
                     if key == Key::Backspace {
                         self.input_controller.backspace();
                         continue;
@@ -70,17 +57,23 @@ where
                     let Some(target) = target else {
                         continue;
                     };
-                    InputSimulatorImpl::backspace();
-                    InputSimulatorImpl::backspace();
 
-                    if let CombinationTarget::Combine(a) = target {
-                        InputSimulatorImpl::character(a);
-                        continue;
-                    }
-
-                    if let CombinationTarget::Revert(a, b) = target {
-                        InputSimulatorImpl::character(a);
-                        InputSimulatorImpl::character(b);
+                    match target {
+                        CombinationTarget::Replace(c) => {
+                            InputSimulatorImpl::backspace();
+                            InputSimulatorImpl::character(c);
+                        }
+                        CombinationTarget::Combine(a) => {
+                            InputSimulatorImpl::backspace();
+                            InputSimulatorImpl::backspace();
+                            InputSimulatorImpl::character(a);
+                        }
+                        CombinationTarget::Revert(a, b) => {
+                            InputSimulatorImpl::backspace();
+                            InputSimulatorImpl::backspace();
+                            InputSimulatorImpl::character(a);
+                            InputSimulatorImpl::character(b);
+                        }
                     }
                 }
             }

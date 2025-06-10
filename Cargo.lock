@@ -14,11 +14,7 @@ dependencies = [
 [[package]]
 name = "clavfrancais_engine"
 version = "0.1.0"
-source = "git+https://github.com/tung-ngt/clavfrancais-engine.git#38e4f243ab0bad90e665f6ac6e771789b6d9c1ce"
-dependencies = [
- "lazy_static",
- "windows",
-]
+source = "git+https://github.com/tung-ngt/clavfrancais-engine.git#43827e9e6bcd1831485969090a179761a3fbcd17"
 
 [[package]]
 name = "lazy_static"
@@ -46,9 +42,9 @@ dependencies = [
 
 [[package]]
 name = "syn"
-version = "2.0.101"
+version = "2.0.102"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8ce2b7fc941b3a24138a0a7cf8e858bfc6a992e7978a068a5c760deb0ed43caf"
+checksum = "f6397daf94fa90f058bd0fd88429dd9e5738999cca8d701813c80723add80462"
 dependencies = [
  "proc-macro2",
  "quote",
